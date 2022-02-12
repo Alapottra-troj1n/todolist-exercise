@@ -1,6 +1,32 @@
 const addTaskBtn = document.querySelector('#input-btn');
+const inputField = document.querySelector('#input-text');
+const tasksContainer = document.querySelector('#tasks-wrapper');
 
 addTaskBtn.addEventListener('click' , getAndDisplayTask);
+
+inputField.addEventListener('keyup', function(e){ 
+    if (e.keyCode === 13) {
+
+        getAndDisplayTask();
+
+    }
+
+});
+
+tasksContainer.addEventListener('click', function(e){
+
+    if(e.target.classList.contains('remove-btn')){
+        const removeBtn = e.target;
+        removeBtn.parentElement.parentElement.remove();
+    }
+
+});
+
+
+
+
+
+
 
 function getAndDisplayTask(){
 
@@ -14,10 +40,10 @@ function getAndDisplayTask(){
     <div id="task" class="py-6 px-4 rounded font-medium">${taskTextValue}</div>
 
     <div class="btn-wrapper  py-6 px-4 font-medium rounded">
-        <button id="remove-btn" class="w-20 py-2 text-white  bg-green-500 rounded">
+        <button class=" done-btn w-20 py-2 text-white  bg-green-500 rounded">
             Done
         </button>
-        <button id="remove-btn" class="w-20 py-2 text-white  bg-red-500 rounded">
+        <button class="remove-btn w-20 py-2 text-white  bg-red-500 rounded">
             Remove
         </button>
     </div>
