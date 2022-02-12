@@ -22,6 +22,17 @@ tasksContainer.addEventListener('click', function(e){
 
 });
 
+tasksContainer.addEventListener('click', function(e){
+
+    if(e.target.classList.contains('done-btn')){
+        let taskDiv = e.target.parentElement.parentElement;
+        taskDiv.classList.add('doneBg');
+        let textNode = taskDiv.childNodes[1];
+        textNode.classList.add('doneTask');
+    }
+
+});
+
 
 
 
