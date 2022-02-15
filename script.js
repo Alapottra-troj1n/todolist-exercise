@@ -2,10 +2,25 @@ const addTaskBtn = document.querySelector('#input-btn');
 const inputField = document.querySelector('#input-text');
 const tasksContainer = document.querySelector('#tasks-wrapper');
 
-addTaskBtn.addEventListener('click' , getAndDisplayTask);
+addTaskBtn.addEventListener('click' , function(){
+    if(inputField.value === ''){
+
+    }
+    
+    else{
+
+        getAndDisplayTask();
+
+    }
+
+});
 
 inputField.addEventListener('keyup', function(e){ 
-    if (e.keyCode === 13) {
+    if(inputField.value === ''){
+
+    }
+    
+    else if (e.keyCode === 13) {
 
         getAndDisplayTask();
 
@@ -26,9 +41,9 @@ tasksContainer.addEventListener('click', function(e){
 
     if(e.target.classList.contains('done-btn')){
         let taskDiv = e.target.parentElement.parentElement;
-        taskDiv.classList.add('doneBg');
+        taskDiv.classList.toggle('doneBg');
         let textNode = taskDiv.childNodes[1];
-        textNode.classList.add('doneTask');
+        textNode.classList.toggle('doneTask');
     }
 
 });
